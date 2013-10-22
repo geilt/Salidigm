@@ -1,0 +1,31 @@
+{
+  "name": "Salidigm",
+  "preferGlobal": false,
+  "version": "0.1.0",
+  "author": "Alexander Conroy <alex@gei.lt>",
+  "description": "Salidigm: A WebSocket Game built with NodeJS and Mongo",
+  "contributors": [ 
+    {
+      "name": "Alexander Conroy",
+      "email": "alex@gei.lt"
+    } 
+  ],
+  "dependencies" : {
+    "mongoose": "*",
+    "mongodb": "*",
+    "connect": "*",
+    "connect-auth": "*",
+    "connect-mongodb": "*",
+    "connect-mongo": "*",
+    "connect-force-domain": "*",
+    "passport": "*",
+    "express": "*",
+    "socket.io": "*",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*"
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}

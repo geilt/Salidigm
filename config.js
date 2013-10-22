@@ -1,7 +1,8 @@
-exports.secret = 'aspfnweovt234890pth9834hbt9w3';
 exports.server = {
-	port: 8080,
-	domain: 'salidigm.com'
+	port: 11342,
+	domain: 'salidigm.com',
+	root: __dirname, //Needed for System to run!
+	secret: 'aspfnweovt234890pth9834hbt9w3'
 };
 exports.mongo = {
 	db: 'salidigm',
@@ -12,6 +13,7 @@ exports.mongo = {
 	},
 	name: 'Salidigm'
 };
+
 
 exports.mongo.dsn = 'mongodb://' + exports.mongo.host + ':'+ exports.mongo.port + '/' + exports.mongo.db,
 

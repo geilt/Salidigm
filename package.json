@@ -13,11 +13,6 @@
   "dependencies" : {
     "mongoose": "*",
     "mongodb": "*",
-    "connect": "*",
-    "connect-auth": "*",
-    "connect-mongodb": "*",
-    "connect-mongo": "*",
-    "connect-force-domain": "*",
     "passport": "*",
     "express": "*",
     "socket.io": "*",

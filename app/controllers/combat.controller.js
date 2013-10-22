@@ -1,5 +1,6 @@
 exports.main = function(req, res){
-	console.log('Test');
+	console.log(req._db.models.Monsters);
+	req._db.models.Monsters.createMonster('test');
 	res.send('Test');
 	/*
 	res.render('index', {

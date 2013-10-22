@@ -1,0 +1,1 @@
+exports.schema = require('./schemas/player.schema.js');

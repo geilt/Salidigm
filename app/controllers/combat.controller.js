@@ -1,11 +1,22 @@
-exports.main = function(req, res){
-	console.log(req._db.models.Monsters);
-	req._db.models.Monsters.createMonster('test');
-	res.send('Test');
-	/*
-	res.render('index', {
-		title: style[0].forms[0].name,
-		moves: style[0].forms[0].moves
-	});	
-	*/
+//Holy shit it works.
+module.exports = {
+	init: function(){
+			console.log('running export with config ' + this.config.mongo.db);
+	},
+	actions: {
+		main: function(req, res){
+			this.database.models.Monsters.createMonster('test');
+			res.render('combat', {
+				title: 'Combat',
+				content: 'Test content'
+			});
+		},
+	},
+	websockets: {
+		attack: function(data, send){
+			send({
+				result: 'yup'
+			});
+		}
+	}
 };

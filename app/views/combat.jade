@@ -1,2 +1,9 @@
-div
-	| Test
+extends layout
+
+block main
+	.container
+		.row
+			.col-lg-6
+				| #{content}
+				button.attack.btn.btn-primary
+					| Attack

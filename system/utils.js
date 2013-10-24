@@ -65,7 +65,7 @@ exports.loadDirectory = function(directory, suffix, prefix) {
 		/**
 		 * Default reference is the file without extension.
 		 */
-		if(!reference){
+		if (!reference) {
 			reference = currentFile.split('.')[0];
 		}
 		/**
@@ -77,7 +77,23 @@ exports.loadDirectory = function(directory, suffix, prefix) {
 	});
 	return exports;
 };
+exports.loadDirectoryRecursive = function(path, obj) {
+	var dir = Filesystem.readdirSync(path);
+	for (var i = 0; i < dir.length; i++) {
+		var name = dir[i];
+		var target = path + '/' + name;
 
+		var stats = Filesystem.statSync(target);
+		if (stats.isFile()) {
+			if (name.slice(-3) === '.js') {
+				obj[name.slice(0, -3)] = require(target);
+			}
+		} else if (stats.isDirectory()) {
+			obj[name] = {};
+			exports.loadDirectoryRecursive(target, obj[name]);
+		}
+	}
+};
 exports.howLongAgo = function(date) {
 	var now = new Date();
 	var diff = now - date;

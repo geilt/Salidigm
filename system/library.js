@@ -1,0 +1,1 @@
+require('./utils').loadDirectoryRecursive(require('path').resolve(__dirname, '../app/lib'), ( module.exports = {} ) );

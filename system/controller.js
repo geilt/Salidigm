@@ -5,6 +5,7 @@ function Controller() {
 	this.socket = null;
 	this.app = null;
 	this.utils = null;
+	this.session = null;
 }
 Controller.prototype.set = function(name, obj) {
 	if(this.hasOwnProperty(name)){
@@ -16,6 +17,9 @@ Controller.prototype.get = function(name){
 		return this[name];
 	}
 	return null;
+};
+Controller.prototype.missing = function(req, res){
+	res.send('Missing Action');
 };
 
 module.exports = Controller;

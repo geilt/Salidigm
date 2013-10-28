@@ -8,12 +8,17 @@
     {
       "name": "Alexander Conroy",
       "email": "alex@gei.lt"
-    } 
+    },
+    {
+      "name": "Robert Pitt",
+      "email": "robertpitt1988@gmail.com"
+    }
   ],
   "dependencies" : {
     "mongoose": "*",
     "mongodb": "*",
     "passport": "*",
+    "connect": "*",
     "express": "*",
     "socket.io": "*",
     "jade": "*",

@@ -2,7 +2,8 @@ exports.server = {
 	port: 11342,
 	domain: 'salidigm.com',
 	root: __dirname, //Needed for System to run!
-	secret: 'aspfnweovt234890pth9834hbt9w3'
+	secret: 'aspfnweovt234890pth9834hbt9w3',
+	key: 'salidigm'
 };
 exports.mongo = {
 	db: 'salidigm',

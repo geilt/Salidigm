@@ -7,9 +7,14 @@ $(document).on('ready', function(){
 				console.log(data);
 			});
 		});
+		$(document).on('click', '.defend', function(){
+			socket.emit('combat/defend', { my: 'data' }, function (data){
+				console.log(data);
+			});
+		});
 	});
 });
 
-socket.on('combat/result2', function (data) {
+socket.on('combat/result', function (data) {
 	console.log(data);
 });

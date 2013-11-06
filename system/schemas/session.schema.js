@@ -9,19 +9,20 @@ var Mongoose = require('mongoose'),
     _Store = require('express').session.Store;
 
 var Session = new Mongoose.Schema({
-    _id: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    expires: {
-        type: Date,
-        required: true
-    },
-    session: {
-        type: String,
-        required: false
-    }
+	_id: {
+		type: String,
+		required: true,
+		unique: true
+	},
+	expires: {
+		type: Date,
+		required: true
+	},
+	session: {
+		type: Object,
+		required: false,
+		default: {}
+	}
 });
 
 /**
@@ -31,9 +32,10 @@ var Session = new Mongoose.Schema({
  * @param {Function} callback callback for completion
  */
 Session.statics.set = function(sid, session, callback) {
+	console.log('Session Schem', session);
     try {
         var newSession = {
-            session: JSON.stringify(session)
+            session: session
         };
 
         /**
@@ -42,7 +44,6 @@ Session.statics.set = function(sid, session, callback) {
         if (session && session.cookie && session.cookie.expires) {
             newSession.expires = session.cookie.expires;
         }
-        console.log(session);
         /**
          * Update/insert the session
          */
@@ -85,7 +86,8 @@ Session.statics.get = function(sid, callback) {
              */
             if (result) {
                 if (!result.expires || new Date() < result.expires) {
-                    callback(null, JSON.parse(result.session));
+                	console.log('Result: ', result);
+                    callback(null, result.session);
                     return;
                 }
                 /**
